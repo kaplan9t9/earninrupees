@@ -256,14 +256,14 @@
             </div>
         </div>
 
-        <!-- Payment Details Modal -->
+        <!-- Payment Details Modal - UPDATED with Muhammad Asif 03045390899 -->
         <div v-if="showPaymentDetails" class="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4" @click.self="showPaymentDetails=false">
             <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl">
                 <h3 class="text-2xl font-bold">Deposit for {{ selectedPlanName }}</h3>
                 <p class="text-lg text-gray-600 mb-3">Amount: <strong class="text-green-600">₨{{ selectedPlanAmount }}</strong></p>
                 <div class="bg-gray-50 p-4 rounded-xl space-y-3 border">
-                    <div class="flex gap-3 border-b pb-2 items-center"><i class="fab fa-easypaisa text-3xl text-green-700"></i><div><p class="font-bold text-lg">Easypaisa</p><p class="text-md font-mono">0311 9595969</p><p class="text-sm">Name: Hamza Ahmed</p></div></div>
-                    <div class="flex gap-3 items-center"><i class="fab fa-jazzcash text-3xl text-orange-500"></i><div><p class="font-bold text-lg">JazzCash</p><p class="text-md font-mono">0311 9595969</p><p class="text-sm">Name: Hamza Ahmed</p></div></div>
+                    <div class="flex gap-3 border-b pb-2 items-center"><i class="fab fa-easypaisa text-3xl text-green-700"></i><div><p class="font-bold text-lg">Easypaisa</p><p class="text-md font-mono">0304 5390899</p><p class="text-sm">Name: Muhammad Asif</p></div></div>
+                    <div class="flex gap-3 items-center"><i class="fab fa-jazzcash text-3xl text-orange-500"></i><div><p class="font-bold text-lg">JazzCash</p><p class="text-md font-mono">0304 5390899</p><p class="text-sm">Name: Muhammad Asif</p></div></div>
                 </div>
                 <button @click="submitPlanDeposit" class="w-full mt-5 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white py-3 rounded-xl font-bold text-lg shadow-lg transition">✅ I have paid — Request Activation</button>
                 <p class="text-xs text-gray-400 text-center mt-3">Admin will confirm & activate your exact plan with bonus.</p>

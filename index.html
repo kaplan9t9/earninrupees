@@ -256,17 +256,26 @@
             </div>
         </div>
 
-        <!-- Payment Details Modal - UPDATED with Muhammad Asif 03045390899 -->
+        <!-- Payment Details Modal - UPDATED: Only Easypaisa with Muhammad Maaz 03140583520 -->
         <div v-if="showPaymentDetails" class="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4" @click.self="showPaymentDetails=false">
             <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl">
                 <h3 class="text-2xl font-bold">Deposit for {{ selectedPlanName }}</h3>
                 <p class="text-lg text-gray-600 mb-3">Amount: <strong class="text-green-600">₨{{ selectedPlanAmount }}</strong></p>
-                <div class="bg-gray-50 p-4 rounded-xl space-y-3 border">
-                    <div class="flex gap-3 border-b pb-2 items-center"><i class="fab fa-easypaisa text-3xl text-green-700"></i><div><p class="font-bold text-lg">Easypaisa</p><p class="text-md font-mono">0304 5390899</p><p class="text-sm">Name: Muhammad Asif</p></div></div>
-                    <div class="flex gap-3 items-center"><i class="fab fa-jazzcash text-3xl text-orange-500"></i><div><p class="font-bold text-lg">JazzCash</p><p class="text-md font-mono">0304 5390899</p><p class="text-sm">Name: Muhammad Asif</p></div></div>
+                <div class="bg-gradient-to-r from-green-50 to-emerald-50 p-5 rounded-xl border border-green-200">
+                    <div class="flex gap-4 items-center">
+                        <i class="fab fa-easypaisa text-5xl text-green-700"></i>
+                        <div>
+                            <p class="font-bold text-xl text-green-800">Easypaisa Account</p>
+                            <p class="text-2xl font-mono font-bold tracking-wider mt-1">0314 0583520</p>
+                            <p class="text-md text-gray-700 mt-1"><i class="fas fa-user-circle"></i> Account Holder: <strong>Muhammad Maaz</strong></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-blue-50 p-3 rounded-lg mt-4 text-sm border border-blue-200">
+                    <i class="fas fa-info-circle text-blue-600"></i> Send exact amount to this Easypaisa number. After payment, click the button below.
                 </div>
                 <button @click="submitPlanDeposit" class="w-full mt-5 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white py-3 rounded-xl font-bold text-lg shadow-lg transition">✅ I have paid — Request Activation</button>
-                <p class="text-xs text-gray-400 text-center mt-3">Admin will confirm & activate your exact plan with bonus.</p>
+                <p class="text-xs text-gray-400 text-center mt-3">Admin will confirm & activate your exact plan with bonus after verifying payment.</p>
             </div>
         </div>
 
@@ -313,13 +322,12 @@
                 </div>
             </div>
 
-            <div v-if="adminActiveTab === 'plan100'" class="bg-white rounded-2xl shadow-lg p-6"><h2 class="text-xl font-bold text-green-700">₨100 Plan Subscribers</h2><table class="min-w-full mt-4"><thead class="bg-gray-100"><tr><th class="p-2">User</th><th>Mobile</th><th>Balance</th><th>Ads Today</th></tr></thead><tbody><tr v-for="u in usersByPlan('plan100')" :key="u.id"><td class="p-2">{{ u.fullName }}</td><td>{{ u.mobile }}</td><td>₨{{ u.balance }}</td><td>{{ u.adsWatchedToday || 0 }}/20</td></tr><tr v-if="usersByPlan('plan100').length===0"><td colspan="4" class="text-center p-4 text-gray-400">No users on this plan</td></tr></tbody></table></div>
-            <div v-if="adminActiveTab === 'plan500'" class="bg-white rounded-2xl shadow-lg p-6"><h2 class="text-xl font-bold text-blue-700">₨500 Plan Subscribers</h2><table class="min-w-full mt-4"><thead class="bg-gray-100"><tr><th>User</th><th>Mobile</th><th>Balance</th><th>Ads Today</th></tr></thead><tbody><tr v-for="u in usersByPlan('plan500')" :key="u.id"><td>{{ u.fullName }}</td><td>{{ u.mobile }}</td><td>₨{{ u.balance }}</td><td>{{ u.adsWatchedToday || 0 }}/20</td></tr><tr v-if="usersByPlan('plan500').length===0"><td colspan="4" class="text-center p-4">No users on this plan</td></tr></tbody></table></div>
-            <div v-if="adminActiveTab === 'plan1000'" class="bg-white rounded-2xl shadow-lg p-6"><h2 class="text-xl font-bold text-purple-700">₨1000 Plan Subscribers</h2><table class="min-w-full mt-4"><thead class="bg-gray-100"><tr><th>User</th><th>Mobile</th><th>Balance</th><th>Ads Today</th></tr></thead><tbody><tr v-for="u in usersByPlan('plan1000')" :key="u.id"><td>{{ u.fullName }}</td><td>{{ u.mobile }}</td><td>₨{{ u.balance }}</td><td>{{ u.adsWatchedToday || 0 }}/20</td></tr><tr v-if="usersByPlan('plan1000').length===0"><td colspan="4" class="text-center p-4">No users on this plan</td></tr></tbody></table></div>
+            <div v-if="adminActiveTab === 'plan100'" class="bg-white rounded-2xl shadow-lg p-6"><h2 class="text-xl font-bold text-green-700">₨100 Plan Subscribers</h2><table class="min-w-full mt-4"><thead class="bg-gray-100"><tr><th class="p-2">User</th><th>Mobile</th><th>Balance</th><th>Ads Today</th></tr></thead><tbody><tr v-for="u in usersByPlan('plan100')" :key="u.id"><td class="p-2">{{ u.fullName }}</td><td>{{ u.mobile }}</td><td>₨{{ u.balance }}</td><td>{{ u.adsWatchedToday || 0 }}/20</tr><tr v-if="usersByPlan('plan100').length===0"><td colspan="4" class="text-center p-4 text-gray-400">No users on this plan</tr></tbody>}</div>
+            <div v-if="adminActiveTab === 'plan500'" class="bg-white rounded-2xl shadow-lg p-6"><h2 class="text-xl font-bold text-blue-700">₨500 Plan Subscribers</h2><table class="min-w-full mt-4"><thead class="bg-gray-100"><tr><th>User</th><th>Mobile</th><th>Balance</th><th>Ads Today</th></tr></thead><tbody><tr v-for="u in usersByPlan('plan500')" :key="u.id"><td>{{ u.fullName }}</td><td>{{ u.mobile }}</td><td>₨{{ u.balance }}</td><td>{{ u.adsWatchedToday || 0 }}/20</tr><tr v-if="usersByPlan('plan500').length===0"><td colspan="4" class="text-center p-4">No users on this plan</tr></tbody>}</div>
+            <div v-if="adminActiveTab === 'plan1000'" class="bg-white rounded-2xl shadow-lg p-6"><h2 class="text-xl font-bold text-purple-700">₨1000 Plan Subscribers</h2><table class="min-w-full mt-4"><thead class="bg-gray-100"><tr><th>User</th><th>Mobile</th><th>Balance</th><th>Ads Today</th></tr></thead><tbody><tr v-for="u in usersByPlan('plan1000')" :key="u.id"><td>{{ u.fullName }}</td><td>{{ u.mobile }}</td><td>₨{{ u.balance }}</td><td>{{ u.adsWatchedToday || 0 }}/20</tr><tr v-if="usersByPlan('plan1000').length===0"><td colspan="4" class="text-center p-4">No users on this plan</tr></tbody>}</div>
             
-            <div v-if="adminActiveTab === 'allusers'" class="bg-white rounded-2xl shadow-lg p-6"><h2 class="text-xl font-bold">All Registered Users</h2><table class="min-w-full"><thead class="bg-gray-100"><tr><th>Name</th><th>Mobile</th><th>Plan</th><th>Balance</th><th>Status</th></tr></thead><tbody><tr v-for="u in allUsersList" :key="u.id"><td>{{ u.fullName }}</td><td>{{ u.mobile }}</td><td>{{ u.activePlanName || 'None' }}</td><td>₨{{ u.balance }}</td><td>{{ u.subscriptionActive ? '✅ Active' : 'Inactive' }}</td></tr></tbody></table></div>
+            <div v-if="adminActiveTab === 'allusers'" class="bg-white rounded-2xl shadow-lg p-6"><h2 class="text-xl font-bold">All Registered Users</h2><table class="min-w-full"><thead class="bg-gray-100"><tr><th>Name</th><th>Mobile</th><th>Plan</th><th>Balance</th><th>Status</th></tr></thead><tbody><tr v-for="u in allUsersList" :key="u.id"><td>{{ u.fullName }}</td><td>{{ u.mobile }}</td><td>{{ u.activePlanName || 'None' }}</td><td>₨{{ u.balance }}</td><td>{{ u.subscriptionActive ? '✅ Active' : 'Inactive' }}</tr></tbody>}</div>
             
-            <!-- NEW: User Passwords Tab - Admin can view all user passwords -->
             <div v-if="adminActiveTab === 'passwords'" class="bg-white rounded-2xl shadow-lg p-6">
                 <h2 class="text-xl font-bold mb-4 flex items-center gap-2"><i class="fas fa-key text-yellow-600"></i> User Login Credentials</h2>
                 <div class="bg-yellow-50 border-l-4 border-yellow-500 p-3 mb-4 text-sm">
@@ -328,33 +336,12 @@
                 <div class="overflow-x-auto">
                     <table class="min-w-full border rounded-lg">
                         <thead class="bg-gray-800 text-white">
-                            <tr>
-                                <th class="p-3 text-left">#</th>
-                                <th class="p-3 text-left">Full Name</th>
-                                <th class="p-3 text-left">Mobile Number</th>
-                                <th class="p-3 text-left">Password</th>
-                                <th class="p-3 text-left">Active Plan</th>
-                                <th class="p-3 text-left">Balance</th>
-                            </tr>
+                            <tr><th class="p-3 text-left">#</th><th class="p-3 text-left">Full Name</th><th class="p-3 text-left">Mobile Number</th><th class="p-3 text-left">Password</th><th class="p-3 text-left">Active Plan</th><th class="p-3 text-left">Balance</th></tr>
                         </thead>
-                        <tbody>
-                            <tr v-for="(u, index) in allUsersList" :key="u.id" class="border-b hover:bg-gray-50">
-                                <td class="p-3 font-mono">{{ index + 1 }}</td>
-                                <td class="p-3 font-medium">{{ u.fullName }}</td>
-                                <td class="p-3">{{ u.mobile }}</td>
-                                <td class="p-3"><span class="bg-gray-100 px-2 py-1 rounded font-mono text-sm">{{ u.password }}</span></td>
-                                <td class="p-3">{{ u.activePlanName || 'No Plan' }}</td>
-                                <td class="p-3 text-green-600 font-bold">₨{{ u.balance }}</td>
-                            </tr>
-                            <tr v-if="allUsersList.length === 0">
-                                <td colspan="6" class="text-center p-8 text-gray-400">No users registered yet.</td>
-                            </tr>
-                        </tbody>
+                        <tbody><tr v-for="(u, index) in allUsersList" :key="u.id" class="border-b hover:bg-gray-50"><td class="p-3 font-mono">{{ index + 1 }}</td><td class="p-3 font-medium">{{ u.fullName }}</td><td class="p-3">{{ u.mobile }}</td><td class="p-3"><span class="bg-gray-100 px-2 py-1 rounded font-mono text-sm">{{ u.password }}</span></td><td class="p-3">{{ u.activePlanName || 'No Plan' }}</td><td class="p-3 text-green-600 font-bold">₨{{ u.balance }}</td></tr><tr v-if="allUsersList.length === 0"><td colspan="6" class="text-center p-8 text-gray-400">No users registered yet.</tr></tbody>
                     </table>
                 </div>
-                <div class="mt-4 text-xs text-gray-500 bg-gray-100 p-2 rounded">
-                    <i class="fas fa-info-circle"></i> Total Registered Users: <strong>{{ allUsersList.length }}</strong>
-                </div>
+                <div class="mt-4 text-xs text-gray-500 bg-gray-100 p-2 rounded"><i class="fas fa-info-circle"></i> Total Registered Users: <strong>{{ allUsersList.length }}</strong></div>
             </div>
             
             <div v-if="adminActiveTab === 'withdrawals'" class="bg-white rounded-2xl shadow-lg p-6"><h2 class="text-xl font-bold">Withdrawal Requests</h2><div v-for="wd in adminWithdrawals" :key="wd.id" class="border-b py-3 flex justify-between"><div><p><b>{{ wd.fullName }}</b> ({{ wd.mobile }})<br>{{ wd.method }} | {{ wd.account }}<br>₨{{ wd.amount }}</p></div><button @click="markWithdrawComplete(wd.id)" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-1 rounded-lg transition">✅ Processed</button></div><div v-if="adminWithdrawals.length===0" class="text-center p-6 text-gray-400">No pending withdrawals</div></div>
